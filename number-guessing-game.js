@@ -8,14 +8,17 @@
 var prompt = require('prompt');
 
 function guessingGame(num) {
+    prompt.start();
+    prompt.message = "Guess a number";
 prompt.get(['guess'], function (err, result) {
       var yourGuess = result.guess;
+      
       
       if (yourGuess === num.toFixed()) {        //prompt only seems to understand strings, but input comes as an integer. 
           console.log("You got the right number!");
       }
       else {
-            console.log("Wrong answer");
+            console.log("Wrong answer. Guess again!");
             guessingGame(num);
       }
 });
