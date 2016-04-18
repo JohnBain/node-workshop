@@ -7,12 +7,13 @@
   
 var prompt = require('prompt');
 
+
+prompt.start();
 prompt.get(['guess'], function (err, result) {
-     
       if (result.guess === "12") {
           console.log("You got the right number!")
       }
       else {
       console.log("Wrong answer");
       }
-    })
+});
