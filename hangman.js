@@ -1,5 +1,9 @@
 var randomWordList = ["snakes", "trampoline", "poodle", "ganja", "toulouse", "fruitfly"];
 var prompt = require('prompt')
+function arrays_equal(a, b) {
+    return JSON.stringify(a) == JSON.stringify(b);
+};
+
 
 function hangManDisplay(parts) {
     console.log("|====-=====|")
@@ -43,7 +47,7 @@ function hangMan(chances) {
           hangManDisplay(chances);
         }
         
-      if (spaces === splitAnswer) {
+      if (arrays_equal(splitAnswer, spaces)) {
             console.log("You win!")
       }
       
