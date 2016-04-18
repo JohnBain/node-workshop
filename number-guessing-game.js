@@ -7,13 +7,35 @@
   
 var prompt = require('prompt');
 
-
-prompt.start();
+function guessingGame(num) {
 prompt.get(['guess'], function (err, result) {
-      if (result.guess === "12") {
-          console.log("You got the right number!")
+      var yourGuess = result.guess;
+      
+      if (yourGuess === num.toFixed()) {        //prompt only seems to understand strings, but input comes as an integer. 
+          console.log("You got the right number!");
       }
       else {
-      console.log("Wrong answer");
+            console.log("Wrong answer");
+            guessingGame(num);
       }
 });
+}
+
+guessingGame(12);
+
+
+/*
+function ask() {
+    // Ask for name until user inputs "done"
+    prompt.get(['name'], function(err, result) {
+        console.log('Diner name: ' + result.name);
+        currentDinerName = result.name;
+        if (currentDinerName === 'done') {
+            console.log('We are done.');
+        } else {
+            ask();
+        }
+    });
+}
+
+ask(); */
